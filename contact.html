@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions Inc. - Contact Us</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .page-header {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .contact-section {
+            padding: 5rem 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group .btn {
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info-icon {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: var(--primary);
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .info-detail h3 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            color: var(--secondary);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .map-section {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-weight: bold;
+        }
+        
+        .faq-section {
+            padding: 5rem 0;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-heading h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--secondary);
+                padding: 1rem 0;
+                transform: translateY(-200%);
+                transition: transform 0.3s;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">TechSolutions</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team for inquiries, support, or to discuss your project</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-detail">
+                            <h3>Address</h3>
+                            <p>123 Galle Road<br>Colombo 7, Sri Lanka</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <div class="info-detail">
+                            <h3>Phone</h3>
+                            <p>+94 74 674 8737</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-detail">
+                            <h3>Email</h3>
+                            <p>contact@techsolutions.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🕒</div>
+                        <div class="info-detail">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                               Saturday: 10:00 AM - 2:00 PM<br>
+                               Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <img src="/api/placeholder/1200/400" alt="Map Location">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can you respond to inquiries?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically respond to all inquiries within 24 hours during business days. For urgent matters, we recommend calling our support line directly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer free consultations?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a free initial consultation to understand your project requirements and provide you with an estimate. This consultation can be conducted in person, over the phone, or via video call.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What information should I prepare before contacting you?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To help us serve you better, it's helpful to have a clear idea of your project goals, timeline, budget considerations, and any specific requirements or preferences. The more details you can provide, the more accurate our initial assessment will be.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you work with international clients?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We work with clients from around the world. Our team is experienced in remote collaboration and we use various tools to ensure smooth communication across different time zones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TechSolutions</h3>
+                    <p>Innovative technology solutions for forward-thinking businesses.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>123 Galle Road</li>
+                        <li>Colombo 7, Sri Lanka</li>
+                        <li>contact@techsolutions.com</li>
+                        <li>+94 74 674 8737</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TechSolutions Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Form submission handler
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real implementation, you would add code here to handle the form submission
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+        
+        // FAQ accordion functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    item.style.display = 'none';
+                });
+                
+                document.querySelectorAll('.faq-question span:last-child').forEach(span => {
+                    span.textContent = '+';
+                });
+                
+                // Open this answer if it was closed
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    question.querySelector('span:last-child').textContent = '-';
+                }
+            });
+        });
+        
+        // Initialize the first FAQ item as open
+        document.querySelector('.faq-answer').style.display = 'block';
+        document.querySelector('.faq-question span:last-child').textContent = '-';
+    </script>
+</body>
+</html>
